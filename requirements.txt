@@ -18,7 +18,6 @@ dash-table==4.1.0
 dask==2.1.0
 decorator==4.4.0
 Flask-Compress==1.4.0
-gunicorn==19.9.0
 html5lib==1.0.1
 idna==2.8
 ipython-genutils==0.2.0
