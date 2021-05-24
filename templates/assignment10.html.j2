@@ -1,0 +1,44 @@
+{% extends "layout.html.j2" %}
+
+{% block title %} Assignment 10 {% endblock %}
+
+{% block body %}
+    <b>Accuracy of model</b>: {{ model_accuracy | safe }} <br/><br/>
+
+    <div class='container'>
+        <input type="text" id="age" placeholder="Age" class="input"/>
+        <select id="gender">
+            <option value="" disabled="disabled" selected="selected">Gender</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+        </select>
+        <select id="pclass">
+            <option value="" disabled="disabled" selected="selected">Class</option>
+            <option value="1">First</option>
+            <option value="2">Second</option>
+            <option value="3">Third</option>
+        </select>
+
+        <button id="predictButton" class='btn btn-success'>Predict</button>
+    </div>
+    <div id="prediction_message"></div>
+    <br><br>
+{% endblock %}
+
+{% block script %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+        $(function () {
+            $('#predictButton').on('click', function (e) {
+                e.preventDefault()
+                $.post('/assignment10_predict', {
+                    'age': $('#age').val(),
+                    'gender': $('#gender').val(),
+                    'pclass': $('#pclass').val(),
+                }, function(data) {
+                    $('#prediction_message').html(data);
+                });
+            });
+        });
+    </script>
+{% endblock %}

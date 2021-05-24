@@ -5,6 +5,7 @@ import pandas as pd
 
 from assignment5 import Assignment5
 from assignment9 import Assignment9
+from assignment10 import Assignment10
 
 import plotly.express as px
 import plotly
@@ -52,10 +53,16 @@ def assignment5():
 def assignment9():
     return Assignment9.process()
 
+
 @app.route("/assignment10")
 def assignment10():
     return Assignment10.process()
 
+
+# background process happening without any refreshing
+@app.route('/assignment10_predict', methods=['POST'])
+def assignment10_predict():
+    return Assignment10.predict()
 
 
 if __name__ == "__main__":

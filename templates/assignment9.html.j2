@@ -1,14 +1,14 @@
 {% extends "layout.html.j2" %}
 
-{% block title %} Assignment 5 {% endblock %}
+{% block title %} Assignment 9 {% endblock %}
 
 {% block body %}
     <div class="chart" id="barchart">
     </div>
 
-    Accuracy of predictions: {{ values.accuracy_value | safe }} <br/>
-    Baseline accuracy: {{ values.baseline_accuracy | safe }}<br/>
-    Accuracy improvement: {{ values.accuracy_improvement | safe }}<br/>
+    <b>Accuracy of predictions: </b>{{ values.accuracy_value | safe }} <br/>
+    <b>Baseline accuracy: </b>{{ values.baseline_accuracy | safe }}<br/>
+    <b>Accuracy improvement: </b>{{ values.accuracy_improvement | safe }}<br/>
 {% endblock %}
 
 {% block script %}

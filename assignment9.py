@@ -5,10 +5,8 @@ import plotly.express as px
 import plotly
 import json
 
-from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn import metrics
+
 
 class Assignment9:
     @staticmethod
@@ -133,9 +131,6 @@ class Assignment9:
         logm1 = sm.GLM(y_train, (sm.add_constant(X_train)), family=sm.families.Binomial())
         logm1.fit().summary()
 
-        # Feature Selection Using RFE
-        from sklearn.linear_model import LogisticRegression
-        logreg = LogisticRegression()
         # Feature Selection Using RFE
         from sklearn.linear_model import LogisticRegression
         logreg = LogisticRegression(max_iter=1000)
