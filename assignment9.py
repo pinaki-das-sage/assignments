@@ -125,7 +125,7 @@ class Assignment9:
         X_train[['tenure', 'MonthlyCharges', 'TotalCharges']] = scaler.fit_transform(
             X_train[['tenure', 'MonthlyCharges', 'TotalCharges']])
 
-        X_train.head()
+        # X_train.head()
 
         # Model Building
         # Logistic regression model
@@ -145,7 +145,7 @@ class Assignment9:
         feature_cols = X.columns
         coeffs = pd.DataFrame(list(zip(feature_cols, logreg.coef_[0])), columns=['feature', 'coef'])
         coeffs.set_index('feature', inplace=True)
-        coeffs.sort_values('coef', ascending=False).head(15)
+        # coeffs.sort_values('coef', ascending=False).head(15)
 
         # create a bar chart out of it
         fig = px.bar(coeffs.sort_values('coef', ascending=False), height=600)
@@ -163,7 +163,7 @@ class Assignment9:
 
         y_train_pred_final = pd.DataFrame({'Churn': y_train.values, 'Churn_Prob': y_train_pred})
         y_train_pred_final['CustID'] = y_train.index
-        y_train_pred_final.head()
+        # y_train_pred_final.head()
 
         # Creating new column 'predicted' with 1 if Churn_Prob > 0.5 else 0
         y_train_pred_final['predicted'] = y_train_pred_final.Churn_Prob.map(lambda x: 1 if x > 0.5 else 0)
