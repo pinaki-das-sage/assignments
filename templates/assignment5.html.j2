@@ -1,0 +1,15 @@
+{% extends "layout.html.j2" %}
+
+{% block title %} Assignment 5 {% endblock %}
+
+{% block body %}
+    <div class="chart" id="linechart">
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        let graphs = {{graphJSON | safe}};
+        Plotly.plot('linechart', graphs, {});
+    </script>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "layout.html.j2" %}
+
+{% block title %} Assignment 5 {% endblock %}
+
+{% block body %}
+    <div class="chart" id="barchart">
+    </div>
+
+    Accuracy of predictions: {{ values.accuracy_value | safe }} <br/>
+    Baseline accuracy: {{ values.baseline_accuracy | safe }}<br/>
+    Accuracy improvement: {{ values.accuracy_improvement | safe }}<br/>
+{% endblock %}
+
+{% block script %}
+    <script>
+        let graphs = {{graphJSON | safe}};
+        Plotly.plot('barchart', graphs, {});
+    </script>
+{% endblock %}
