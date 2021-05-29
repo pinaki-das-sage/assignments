@@ -6,6 +6,7 @@ import pandas as pd
 from assignment5 import Assignment5
 from assignment9 import Assignment9
 from assignment10 import Assignment10
+from assignment11 import Assignment11
 
 import plotly.express as px
 import plotly
@@ -57,6 +58,11 @@ def assignment9():
 @app.route("/assignment10")
 def assignment10():
     return Assignment10.process()
+
+
+@app.route("/assignment11")
+def assignment11():
+    return Assignment11.process()
 
 
 # background process happening without any refreshing

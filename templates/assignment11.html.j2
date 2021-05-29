@@ -1,0 +1,41 @@
+{% extends "layout.html.j2" %}
+
+{% block title %} Assignment 11 {% endblock %}
+
+{% block body %}
+
+    <div class="chart" id="barchart">
+        Different job categories and how much they deposited.
+    </div>
+
+
+    {% block content %}
+        <h1>{{ name }}</h1>
+        {{ scoresDf | safe }}
+    {% endblock %}
+    We can see that the bias is proportional to the tree depth. So, we are going to stick to depth=2 for our purposes.
+    We will plot the trees for depth2 and depth=3.
+    <br/>
+
+    <hr>
+    <br/>
+
+    Tree for depth=2
+    <br/>
+    <img src="data:;base64,{{ tree2 }}"/>
+
+    <br/>
+    <br/>
+    <br/>
+    Tree for depth=3
+    <img src="data:;base64,{{ tree3 }}"/>
+
+    <br />
+{% endblock %}
+
+{% block script %}
+    <script>
+        let graphs = {{barchartJSON | safe}};
+        Plotly.plot('barchart', graphs, {});
+    </script>
+{% endblock %}
