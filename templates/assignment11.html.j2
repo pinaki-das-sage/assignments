@@ -3,6 +3,7 @@
 {% block title %} Assignment 11 {% endblock %}
 
 {% block body %}
+    Predicting who is more likely to make a bank deposit.
 
     <div class="chart" id="barchart">
         Different job categories and how much they deposited.
@@ -11,10 +12,10 @@
 
     {% block content %}
         <h1>{{ name }}</h1>
-        {{ scoresDf | safe }}
+        {{ scoresDfHTML | safe }}
     {% endblock %}
     We can see that the bias is proportional to the tree depth. So, we are going to stick to depth=2 for our purposes.
-    We will plot the trees for depth2 and depth=3.
+    We will plot the trees for depth=2 and depth=3.
     <br/>
 
     <hr>

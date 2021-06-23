@@ -5,31 +5,13 @@ import pandas as pd
 import json
 from sklearn.model_selection import train_test_split
 from sklearn import tree
-import pydotplus
-import base64
-from IPython.display import Image
+from customutils import CustomUtils
 
 
 class Assignment11:
     @staticmethod
-    def get_base64_encoded_image(decision_tree, columns):
-        dot_data = tree.export_graphviz(decision_tree, out_file=None, feature_names=columns, impurity=False,
-                                        filled=True,
-                                        proportion=True,
-                                        rounded=True)
-
-        graph = pydotplus.graph_from_dot_data(dot_data)
-        image = Image(graph.create_png())
-        encodedImage = base64.b64encode(image.data).decode("utf-8")
-        return encodedImage
-
-    @staticmethod
     def process():
-        import os
-        from pathlib import Path
-        filepath = os.path.join(Path(__file__).parent, 'data', '.')
-
-        bank = pd.read_csv(f'{filepath}/11_bank.csv')
+        bank = CustomUtils.read_file_and_return_df('11a_bank.csv')
         # bank.head()
         bank_data = bank.copy()
 
@@ -118,14 +100,15 @@ class Assignment11:
             "Testing score": [dt2_score_test, dt3_score_test, dt4_score_test, dt6_score_test, dt1_score_test]
         }
         scoresDf = pd.DataFrame.from_dict(scores)
+        scoresDfHTML = scoresDf.to_html(classes='table table-striped', index=False, justify='center')
 
         # Extract the deposte_cat column (the dependent variable)
         # corr_deposite = pd.DataFrame(corr['deposit_cat'].drop('deposit_cat'))
         # corr_deposite.sort_values(by='deposit_cat', ascending=False)
 
-        tree2 = Assignment11.get_base64_encoded_image(dt2, data_train.columns)
-        tree3 = Assignment11.get_base64_encoded_image(dt3, data_train.columns)
+        tree2 = CustomUtils.get_base64_encoded_image(dt2, data_train.columns)
+        tree3 = CustomUtils.get_base64_encoded_image(dt3, data_train.columns)
 
         return render_template("assignment11.html.j2", barchartJSON=barchartJSON,
-                               scoresDf=scoresDf.to_html(classes='table table-striped', index=False, justify='center'),
+                               scoresDfHTML=scoresDfHTML,
                                tree2=tree2, tree3=tree3)

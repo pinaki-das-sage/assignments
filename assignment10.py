@@ -6,6 +6,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import metrics
+from customutils import CustomUtils
 
 
 class Assignment10:
@@ -15,11 +16,7 @@ class Assignment10:
 
     @staticmethod
     def process():
-        import os
-        from pathlib import Path
-        filepath = os.path.join(Path(__file__).parent, 'data', '.')
-
-        passengers = pd.read_csv(f'{filepath}/10_titanic.csv')
+        passengers = CustomUtils.read_file_and_return_df('10_titanic.csv');
         feature_cols = ['Pclass', 'Sex', 'Age']
         # passengers.head()
 

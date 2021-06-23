@@ -1,7 +1,7 @@
-Flask
-pandas
+Flask~=2.0.0
+pandas~=1.2.4
 gunicorn
-plotly
+plotly~=4.14.3
 certifi
 chardet
 Click
@@ -14,9 +14,9 @@ ipython-genutils
 Jinja2
 jupyter-core
 nbformat
-numpy
+numpy~=1.20.3
 pytz
-six
+six~=1.12.0
 traitlets
 Werkzeug
 scikit-learn
@@ -24,3 +24,8 @@ statsmodels
 graphviz
 pydotplus
 IPython
+pydot
+nltk
+textblob
+speechrecognition
+pyaudio

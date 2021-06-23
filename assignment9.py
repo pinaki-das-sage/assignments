@@ -6,6 +6,7 @@ import plotly
 import json
 
 from sklearn.model_selection import train_test_split
+from customutils import CustomUtils
 
 
 class Assignment9:
@@ -15,13 +16,9 @@ class Assignment9:
 
     @staticmethod
     def process():
-        import os
-        from pathlib import Path
-        filepath = os.path.join(Path(__file__).parent, 'data', '.')
-
-        churn_data = pd.read_csv(f'{filepath}/9_churn_data.csv')
-        customer_data = pd.read_csv(f'{filepath}/9_customer_data.csv')
-        internet_data = pd.read_csv(f'{filepath}/9_internet_data.csv')
+        churn_data = CustomUtils.read_file_and_return_df('9_churn_data.csv')
+        customer_data = CustomUtils.read_file_and_return_df('9_customer_data.csv')
+        internet_data = CustomUtils.read_file_and_return_df('9_internet_data.csv')
 
         # merge churn data with customer data
         df_1 = pd.merge(churn_data, customer_data, how='inner', on='customerID')

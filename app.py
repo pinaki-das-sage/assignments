@@ -7,7 +7,8 @@ from assignment5 import Assignment5
 from assignment9 import Assignment9
 from assignment10 import Assignment10
 from assignment11 import Assignment11
-
+from assignment11b import Assignment11B
+from capstone import Capstone
 import plotly.express as px
 import plotly
 import json
@@ -19,6 +20,12 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template("index.html.j2")
+
+
+# 404 handler
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404.html.j2")
 
 
 # first method - kept it simple here, it is defined right here within the file
@@ -63,6 +70,16 @@ def assignment10():
 @app.route("/assignment11")
 def assignment11():
     return Assignment11.process()
+
+
+@app.route("/assignment11b")
+def assignment11b():
+    return Assignment11B.process()
+
+
+@app.route("/capstone")
+def capstone():
+    return Capstone.process()
 
 
 # background process happening without any refreshing
