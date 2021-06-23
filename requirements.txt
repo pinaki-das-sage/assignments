@@ -28,4 +28,3 @@ pydot
 nltk
 textblob
 speechrecognition
-pyaudio

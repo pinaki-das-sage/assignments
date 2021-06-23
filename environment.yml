@@ -1,0 +1,3 @@
+name: sageassignments
+dependencies:
+  pyaudio
