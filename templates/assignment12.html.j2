@@ -1,0 +1,59 @@
+{% extends "layout.html.j2" %}
+
+{% block title %} Assignment 12 {% endblock %}
+
+{% block body %}
+    These are the categories we will be plotting over
+    <br/>
+    {% block categories %}
+        <h1>{{ name }}</h1>
+        {{ categories | safe }}
+    {% endblock %}
+
+    <br/><br/>
+
+    <div class="chart" id="barcharts">
+        Correlation of each category field with attrition (target)
+    </div>
+    <br/><br/>
+
+
+    We can draw the following conclusions from the charted graphs<br/>
+    {% block conclusions %}
+        <h1>{{ name }}</h1>
+        {{ conclusions | safe }}
+    {% endblock %}
+    <br/>
+
+    <hr>
+    <br/>
+
+    {% block random_train_scores %}
+        <h1>{{ name }}</h1>
+        {{ random_train_scores | safe }}
+    {% endblock %}
+    <br/>
+
+
+
+    Tree for depth=2
+    <br/>
+    <img src="data:;base64,{{ tree2 }}"/>
+
+    <br/>
+{% endblock %}
+
+{% block script %}
+    <script>
+        let graphs = {{barChartJsons | safe}};
+
+        for (let i = 0; i < graphs.length; i++) {
+            let divElement = document.createElement("div");
+            divElement.id = "barchart_"+i;
+            document.getElementById("barcharts").appendChild(divElement);
+
+            Plotly.plot("barchart_"+i, JSON.parse(graphs[i]), {});
+        }
+
+    </script>
+{% endblock %}

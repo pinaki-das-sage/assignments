@@ -25,6 +25,3 @@ graphviz
 pydotplus
 IPython
 pydot
-nltk
-textblob
-speechrecognition

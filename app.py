@@ -7,8 +7,9 @@ from assignment5 import Assignment5
 from assignment9 import Assignment9
 from assignment10 import Assignment10
 from assignment11 import Assignment11
-from assignment11b import Assignment11B
-from capstone import Capstone
+from assignment12 import Assignment12
+from assignment16 import Assignment16
+from assignment17 import Assignment17
 import plotly.express as px
 import plotly
 import json
@@ -72,14 +73,19 @@ def assignment11():
     return Assignment11.process()
 
 
-@app.route("/assignment11b")
-def assignment11b():
-    return Assignment11B.process()
+@app.route("/assignment12")
+def assignment12():
+    return Assignment12.process()
 
 
-@app.route("/capstone")
-def capstone():
-    return Capstone.process()
+@app.route("/assignment16")
+def assignment16():
+    return Assignment16.process()
+
+
+@app.route("/assignment17")
+def assignment17():
+    return Assignment17.process()
 
 
 # background process happening without any refreshing

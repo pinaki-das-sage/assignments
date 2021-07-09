@@ -1,0 +1,42 @@
+{% extends "layout.html.j2" %}
+
+{% block title %} Assignment 17 {% endblock %}
+
+{% block body %}
+    Sample rider dataset
+    <br/>
+    {% block sample_dataset %}
+        <h1>{{ name }}</h1>
+        {{ sample_dataset | safe }}
+    {% endblock %}
+
+    <br/><br/>
+
+    <div class="chart" id="average_rider_line_chart">
+        Average rider line chart
+    </div>
+    <br/><br/>
+
+    <div class="chart" id="average_rider_bar_chart">
+        Average riders by month
+    </div>
+    <br/><br/>
+
+    <div class="chart" id="rider_forecast_chart">
+        Forecast of average ridership
+    </div>
+    <br/><br/>
+{% endblock %}
+
+{% block script %}
+    <script>
+        let average_rider_line_json = {{average_rider_line_json | safe}};
+        Plotly.plot('average_rider_line_chart', average_rider_line_json, {});
+
+        let average_rider_bar_json = {{average_rider_bar_json | safe}};
+        Plotly.plot('average_rider_bar_chart', average_rider_bar_json, {});
+
+        let rider_forecast_json = {{rider_forecast_json | safe}};
+        Plotly.plot('rider_forecast_chart', rider_forecast_json, {});
+    </script>
+{% endblock %}

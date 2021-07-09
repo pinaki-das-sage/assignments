@@ -1,0 +1,35 @@
+{% extends "layout.html.j2" %}
+
+{% block title %} Assignment 16 {% endblock %}
+
+{% block body %}
+    Sample movies dataset
+    <br/>
+    {% block sample_dataset %}
+        <h1>{{ name }}</h1>
+        {{ sample_dataset | safe }}
+    {% endblock %}
+
+    <br/><br/>
+
+    Vote counts: {{ vote_counts | safe }} <br /><br />
+    Average votes: {{ vote_averages | safe }} <br /><br />
+    Mean votes: {{ vote_mean | safe }} <br /><br />
+
+    <br/><br/>
+
+    Best romantic movies
+    <br/>
+    {% block best_romantic_movies %}
+        <h1>{{ name }}</h1>
+        {{ best_romantic_movies | safe }}
+    {% endblock %}
+    <br/><br/>
+
+    Movies similar to: <b>{{ movie_to_search | safe }} </b> <br/>
+    {% block recommendations %}
+        <h1>{{ name }}</h1>
+        {{ recommendations | safe }}
+    {% endblock %}
+    <br/>
+{% endblock %}
